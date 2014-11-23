@@ -15,6 +15,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
@@ -25,7 +26,7 @@ import ru.tehkode.permissions.PermissionUser;
 import ru.tehkode.permissions.bukkit.PermissionsEx;
 public class Listeners implements Listener
 {
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onChat(AsyncPlayerChatEvent e)
     {
 	PermissionManager pex = PermissionsEx.getPermissionManager();
@@ -82,7 +83,7 @@ public class Listeners implements Listener
 	for (int i = 0; i < msg.length(); i++)
 	{
 	    if (msg.charAt(i) == '&')
-		coloredMsg += 'ง';
+		coloredMsg += 'ยง';
 	    else
 		coloredMsg += msg.charAt(i);
 	}
